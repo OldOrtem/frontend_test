@@ -1,6 +1,7 @@
 import React from 'react';
 import { SDKProvider} from '@telegram-apps/sdk-react';
 import TappingPage from './components/TappingPage';
+import './App.css'
 
 const App: React.FC = () => {
   // const [userId, setUserId] = useState<string | null>(null);

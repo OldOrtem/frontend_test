@@ -5,6 +5,7 @@ import { observer } from "mobx-react-lite";
 import energyStore from "../store/energyStore";
 import styles from "./styles/tappingPage.module.scss"
 import Coins from "./Coins";
+import Fruit from "./Fruit";
 
 const TappingPage = observer(() => {
 
@@ -27,8 +28,7 @@ const TappingPage = observer(() => {
      <div className={styles.tappingPage}>
       id: {userId}
       <Coins/>
-      <div onClick={tap}>click</div>
-      <br />
+      <Fruit callback={tap}/>
       energy: {energyStore.value}
     </div>
     
