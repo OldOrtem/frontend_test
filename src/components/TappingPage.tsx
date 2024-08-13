@@ -1,5 +1,5 @@
 import { useInitData } from "@telegram-apps/sdk-react";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import statsService from "../service/StatsService";
 import { observer } from "mobx-react-lite";
 import coinStore from "../store/coinStore";
@@ -9,7 +9,7 @@ const TappingPage = observer(() => {
 
   const [userId, setUserId] = useState<number|undefined>(0);
   const initData = useInitData();
-  useEffect(()=>{
+  useLayoutEffect(()=>{
     setUserId(initData?.user?.id);
     statsService.loadStats(Number(userId));
   }, [])
