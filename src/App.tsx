@@ -6,7 +6,7 @@ function App() {
 
     // Получение инициализационных данных
     const { initData } = retrieveLaunchParams();
-    let userId;
+    let userId = 0;
     // Проверка, что initData определен и имеет корректный формат
     if (initData) {
       try {
