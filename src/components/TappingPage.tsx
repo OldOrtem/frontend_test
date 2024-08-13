@@ -1,5 +1,5 @@
 import { initClosingBehavior, initSwipeBehavior, useInitData } from "@telegram-apps/sdk-react";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import statsService from "../service/StatsService";
 import { observer } from "mobx-react-lite";
 import coinStore from "../store/coinStore";
@@ -20,27 +20,6 @@ const TappingPage = observer(() => {
     statsService.loadStats(Number(userId));
   }, [])
 
-  useEffect(() => {
-    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
-      event.preventDefault();
-      saveUserData();
-      // Standard behavior, which might not be required in some cases.
-      alert("hi")
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, []);
-
-  const saveUserData = () => {
-    // Function to save user data or perform any necessary operations before the app is closed
-    statsService.saveStats(Number(userId));
-  };
-
   function tap(){
     statsService.setCoins(statsService.getCoins()+5);
     statsService.setEnergy(statsService.getEnergy()-5);
@@ -49,7 +28,7 @@ const TappingPage = observer(() => {
   return (
     <>
      <div>
-
+      id: {userId}
       <div>coins: {coinStore.value}</div>
       <br />
       <div onClick={tap}>click</div>
