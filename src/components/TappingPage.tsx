@@ -2,7 +2,6 @@ import { useInitData } from "@telegram-apps/sdk-react";
 import { useLayoutEffect, useState } from "react";
 import statsService from "../service/StatsService";
 import { observer } from "mobx-react-lite";
-import coinStore from "../store/coinStore";
 import energyStore from "../store/energyStore";
 import styles from "./styles/tappingPage.module.scss"
 import Coins from "./Coins";
