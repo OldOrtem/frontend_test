@@ -4,6 +4,7 @@ import statsService from "../service/StatsService";
 import { observer } from "mobx-react-lite";
 import coinStore from "../store/coinStore";
 import energyStore from "../store/energyStore";
+import styles from "./styles/tappingPage.module.scss"
 
 const TappingPage = observer(() => {
 
@@ -22,8 +23,8 @@ const TappingPage = observer(() => {
   }
 
   return (
-    <>
-     <div>
+    
+     <div className={styles.tappingPage}>
       id: {userId}
       <div>coins: {coinStore.value}</div>
       <br />
@@ -31,7 +32,7 @@ const TappingPage = observer(() => {
       <br />
       energy: {energyStore.value}
     </div>
-    </>
+    
   )
 })
 
