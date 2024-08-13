@@ -19,7 +19,7 @@ const TappingPage = observer(() => {
       event.preventDefault();
       saveUserData();
       // Standard behavior, which might not be required in some cases.
-      
+      alert("hi")
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
