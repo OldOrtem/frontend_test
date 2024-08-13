@@ -1,4 +1,4 @@
-import { initClosingBehavior, initSwipeBehavior, useInitData } from "@telegram-apps/sdk-react";
+import { useInitData } from "@telegram-apps/sdk-react";
 import { useLayoutEffect, useState } from "react";
 import statsService from "../service/StatsService";
 import { observer } from "mobx-react-lite";
@@ -9,11 +9,6 @@ const TappingPage = observer(() => {
 
   const [userId, setUserId] = useState<number|undefined>(0);
   const initData = useInitData();
-
-  const [closingBehavior] = initClosingBehavior();
-  closingBehavior.enableConfirmation();
-  const [swipeBehavior] = initSwipeBehavior();
-  swipeBehavior.disableVerticalSwipe();
 
   useLayoutEffect(()=>{
     setUserId(initData?.user?.id);
