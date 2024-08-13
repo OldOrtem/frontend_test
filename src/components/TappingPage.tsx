@@ -23,7 +23,7 @@ const TappingPage = observer(() => {
   function tap(){
     statsService.setCoins(statsService.getCoins()+5);
     statsService.setEnergy(statsService.getEnergy()-5);
-    statsService.saveStats(Number(userId));
+    // statsService.saveStats(Number(userId));
   }
   return (
     <>
