@@ -21,9 +21,11 @@ const TappingPage = observer(() => {
   return (
     <>
      <div>
-      User ID: {userId}
+      
+      
+      <div>coins: {coinStore.value}</div>
       <br />
-      <div onClick={tap}>coins: {coinStore.value}</div>
+      <div onClick={tap}>click</div>
       <br />
       energy: {energyStore.value}
     </div>
