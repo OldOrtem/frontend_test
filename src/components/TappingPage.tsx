@@ -2,7 +2,7 @@ import { useInitData } from "@telegram-apps/sdk-react";
 import { useEffect, useState } from "react";
 
 function TappingPage() {
-  const [userId, setUserId] = useState(0);
+  const [userId, setUserId] = useState<number|undefined>(0);
   const initData = useInitData();
   useEffect(()=>{
     setUserId(initData?.user?.id);
