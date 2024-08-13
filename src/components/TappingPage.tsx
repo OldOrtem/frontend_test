@@ -15,11 +15,12 @@ const TappingPage = observer(() => {
     statsService.loadStats(Number(userId));
   }, [])
 
-  function tap(){
+  async function tap(){
     statsService.setCoins(statsService.getCoins()+5);
     statsService.setEnergy(statsService.getEnergy()-5);
-    statsService.saveStats(Number(userId));
+    await statsService.saveStats(Number(userId));
   }
+
   return (
     <>
      <div>
