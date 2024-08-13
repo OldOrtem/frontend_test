@@ -6,6 +6,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Qanelas";
+  src: url('./assets/QanelasMedium.otf') format('opentype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
