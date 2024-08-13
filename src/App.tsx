@@ -1,5 +1,5 @@
 
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import './App.css'
 import { retrieveLaunchParams } from '@telegram-apps/sdk';
 function App() {
@@ -26,7 +26,7 @@ function App() {
     } else {
       console.error('initData не определен');
     }
-  },[])
+  },[userId])
   
 
     // Получение инициализационных данных
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <>
-     {userId||0}
+     {userId}
     </>
   )
 }
