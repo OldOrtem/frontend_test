@@ -7,7 +7,7 @@ const Coins = observer(() => {
 
     return (
       <div className={styles.coins}>
-       <img className={styles.coins__img} src="../assets/coin.png" alt="coin" />
+       <img className={styles.coins__img} src="../../assets/coin.png" alt="coin" />
        <div className={styles.coins__value}>{coinStore.value.toLocaleString("de-DE")}</div>
       </div>
     )
