@@ -1,48 +1,38 @@
-
-import { useLayoutEffect, useState } from 'react';
-import './App.css'
+import React, { useEffect, useState } from 'react';
 import { retrieveLaunchParams } from '@telegram-apps/sdk';
-function App() {
-  const [userId, setUserId] = useState(0);
-  useLayoutEffect(()=>{
-      
-    try{
-        const { initData } = retrieveLaunchParams();
-      // Проверка, что initData определен и имеет корректный формат
-      if (initData) {
-        try {
-          // Создание URLSearchParams из строки запроса
-          const urlParams = new URLSearchParams(initData);
-          
-          // Получение JSON строки и парсинг ее
-          const userJson = urlParams.get('user');
-          const user = userJson ? JSON.parse(userJson) : {};
-          
-          // Извлечение userId
-          setUserId(user.id);
 
-          console.log('User ID:', userId);
-        } catch (error) {
-          console.error('Ошибка при обработке initData:', error);
+const App: React.FC = () => {
+  const [userId, setUserId] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    try {
+      const { initData } = retrieveLaunchParams();
+      
+      if (initData) {
+        // Assuming initData is a JSON string or can be parsed directly
+        const urlParams = new URLSearchParams(initData);
+        const userJson = urlParams.get('user');
+        
+        if (userJson) {
+          const user = JSON.parse(userJson);
+          setUserId(user.id);
+        } else {
+          throw new Error('User data not found in initData');
         }
       } else {
-        console.error('initData не определен');
+        throw new Error('InitData is not defined');
       }
+    } catch (e) {
+      setError(`Error retrieving or parsing launch parameters: ${e.message}`);
     }
-    catch(e){
-      console.log(e)
-    }
-  },[userId])
-  
+  }, []);
 
-    // Получение инициализационных данных
-    
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
-  return (
-    <>
-     {userId}
-    </>
-  )
-}
+  return <div>User ID: {userId}</div>;
+};
 
-export default App
+export default App;
