@@ -1,6 +1,19 @@
+@font-face {
+  font-family: "Japanese 3017";
+  src: url('./assets/Japanese_3017.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
 
   color: white;
+  font-family: 'Japanese 3017';
+
+  
 }
+
+
