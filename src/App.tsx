@@ -1,24 +1,23 @@
 
+import { useLayoutEffect } from 'react';
 import './App.css'
 import { retrieveLaunchParams } from '@telegram-apps/sdk';
 function App() {
-      
-
-    // Получение инициализационных данных
+  const [userId, setUserId] = useState(0);
+  useLayoutEffect(()=>{
     const { initData } = retrieveLaunchParams();
-    let userId = 0;
     // Проверка, что initData определен и имеет корректный формат
     if (initData) {
       try {
         // Создание URLSearchParams из строки запроса
-        const urlParams = new URLSearchParams(JSON.stringify(initData));
+        const urlParams = new URLSearchParams(initData);
         
         // Получение JSON строки и парсинг ее
         const userJson = urlParams.get('user');
         const user = userJson ? JSON.parse(userJson) : {};
         
         // Извлечение userId
-        userId = user.id;
+        setUserId(user.id);
 
         console.log('User ID:', userId);
       } catch (error) {
@@ -27,10 +26,15 @@ function App() {
     } else {
       console.error('initData не определен');
     }
+  },[])
+  
+
+    // Получение инициализационных данных
+    
 
   return (
     <>
-     {userId}
+     {userId||0}
     </>
   )
 }
