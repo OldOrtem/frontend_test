@@ -35,11 +35,11 @@ class StatsService implements IService{
     }
 
     public async saveStats(userId:number):Promise<void>{
-        const stats:stats = {
-            coins: this.coinStore.get(),
-            energy: this.energyStore.get(),
-        }
-        await this.transport.post(userId, stats)
+        const stat:stats = {coins:1,energy:1};
+        stat.coins = this.coinStore.get();
+        stat.energy = this.energyStore.get();
+        
+        await this.transport.post(userId, stat)
     }
     
     public setCoins(val:number):void{
