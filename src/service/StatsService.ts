@@ -47,7 +47,18 @@ class StatsService implements IService{
     }
 
     public setEnergy(val:number):void{
+        if(val < 0){
+            val = 0;
+        }
         this.energyStore.set(val);
+    }
+
+    public getCoins():number{
+        return this.coinStore.get();
+    }
+
+    public getEnergy():number{
+        return this.energyStore.get();
     }
    
 }

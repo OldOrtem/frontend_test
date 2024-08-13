@@ -5,6 +5,8 @@ interface IService{
     saveStats(userId:number):Promise<void>;
     setCoins(val:number):void;
     setEnergy(val:number):void;
+    getCoins():number;
+    getEnergy():number
 }
 
 export default IService;
