@@ -36,9 +36,10 @@
     }
 
     &__val{
-        position: relative;
+        position: absolute;
         height: 0;
         margin: 8px auto;
+        text-align: center;
         z-index: 100;
     }
 }
