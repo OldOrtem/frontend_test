@@ -34,7 +34,7 @@ class StatsTransport implements ITransport{
 
     public async post(user_id:number, newStats:stats):Promise<void> {
         try {
-            const response = await axios.post(`${this.apiUrl}/test/user_exit/${user_id}`, newStats)
+            const response = await axios.post(`${this.apiUrl}/test/user_exit/${user_id}?coins=${newStats.coins}&energy=${newStats.energy}`)
             console.log(response);
         } catch (error) {
             if (axios.isAxiosError(error)) {
