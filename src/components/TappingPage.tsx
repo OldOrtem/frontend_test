@@ -19,6 +19,7 @@ const TappingPage = observer(() => {
     const interval = setInterval(() => {
       if(statsService.getEnergy() < 1000){
         statsService.setEnergy(statsService.getEnergy()+1);
+        statsService.setCoins(statsService.getCoins()+1);
       }
       
     }, 1000);
