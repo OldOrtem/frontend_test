@@ -8,7 +8,7 @@ function Fruit({callback}:FruitProps) {
 
     return (
       <div>
-       <img onClick={callback} src="fruit.png" alt="fruit" />
+       <img onClick={callback} src="assets/fruit.png" alt="fruit" />
       </div>
     )
   }
