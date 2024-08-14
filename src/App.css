@@ -21,7 +21,8 @@
   color: white;
   font-family: 'Japanese 3017';
 
-  background-image: url(assets/Main.png)
+  background-image: url(assets/Main.png);
+  background-repeat: no-repeat;
 }
 
 
