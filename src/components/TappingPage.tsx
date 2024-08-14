@@ -15,6 +15,7 @@ const TappingPage = observer(() => {
   useLayoutEffect(()=>{
     setUserId(initData?.user?.id);
     statsService.loadStats(Number(userId));
+    statsService.setEnergy(500);
   }, [])
 
   async function tap(){
