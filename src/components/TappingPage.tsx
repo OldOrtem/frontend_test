@@ -9,11 +9,11 @@ import Energy from "./Energy";
 
 const TappingPage = observer(() => {
 
-  const [userId, setUserId] = useState<number|undefined>(0);
+  const [userId, setUserId] = useState<number>(0);
   const initData = useInitData();
 
   useLayoutEffect(()=>{
-    setUserId(initData?.user?.id);
+    setUserId(initData?.user?.id as number);
     statsService.loadStats(Number(userId));
 
     const interval = setInterval(() => {
@@ -27,14 +27,14 @@ const TappingPage = observer(() => {
 
     return () => {
       clearInterval(interval);
-      statsService.saveStats(Number(userId));
+      statsService.saveStats(userId);
     }
   }, [])
 
   async function tap(){
     statsService.setCoins(statsService.getCoins()+20);
     statsService.setEnergy(statsService.getEnergy()-20);
-    await statsService.saveStats(Number(userId));
+    await statsService.saveStats(userId);
   }
 
   return (
