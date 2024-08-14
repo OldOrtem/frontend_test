@@ -25,6 +25,7 @@
         border-radius: 38px;
         opacity: 0px;
         background-color: #22001B;
+        overflow: hidden;
 
         &_active{
 
@@ -43,6 +44,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        overflow: hidden;
+        
     }
 }
