@@ -17,6 +17,7 @@
 #root {
   width: 100vw;
   height: 100vh;
+  min-width: 800px;
 
   color: white;
   font-family: 'Japanese 3017';
