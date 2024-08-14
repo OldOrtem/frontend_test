@@ -1,6 +1,7 @@
 .fruit{
+    display: flex;
+    justify-content: center;
     &__img{
-        margin: auto;
         width: 85%;
     }
 }
