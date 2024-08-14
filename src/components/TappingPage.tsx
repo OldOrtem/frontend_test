@@ -15,9 +15,12 @@ const TappingPage = observer(() => {
   useLayoutEffect(()=>{
     setUserId(initData?.user?.id);
     statsService.loadStats(Number(userId));
-    
+
     const interval = setInterval(() => {
-      statsService.setEnergy(statsService.getEnergy()+1);
+      if(statsService.getEnergy() < 1000){
+        statsService.setEnergy(statsService.getEnergy()+1);
+      }
+      
     }, 1000);
 
 
