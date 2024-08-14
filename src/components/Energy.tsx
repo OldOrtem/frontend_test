@@ -20,6 +20,6 @@ const Energy = observer(() => {
       </div>
     )
   }
-  
-  export default Energy
+)
+export default Energy
   
