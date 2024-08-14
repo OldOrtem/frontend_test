@@ -18,8 +18,8 @@ const TappingPage = observer(() => {
   }, [])
 
   async function tap(){
-    statsService.setCoins(statsService.getCoins()+5);
-    statsService.setEnergy(statsService.getEnergy()-5);
+    statsService.setCoins(statsService.getCoins()+20);
+    statsService.setEnergy(statsService.getEnergy()-20);
     await statsService.saveStats(Number(userId));
   }
 
