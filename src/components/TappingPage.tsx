@@ -2,10 +2,10 @@ import { useInitData } from "@telegram-apps/sdk-react";
 import { useLayoutEffect, useState } from "react";
 import statsService from "../service/StatsService";
 import { observer } from "mobx-react-lite";
-import energyStore from "../store/energyStore";
 import styles from "./styles/tappingPage.module.scss"
 import Coins from "./Coins";
 import Fruit from "./Fruit";
+import Energy from "./Energy";
 
 const TappingPage = observer(() => {
 
@@ -26,10 +26,10 @@ const TappingPage = observer(() => {
   return (
     
      <div className={styles.tappingPage}>
-      id: {userId}
+      {/* id: {userId} */}
       <Coins/>
       <Fruit callback={tap}/>
-      energy: {energyStore.value}
+      <Energy/>
     </div>
     
   )

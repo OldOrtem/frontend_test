@@ -1,0 +1,41 @@
+.energy{
+    align-self: flex-start;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-family: 'Qanelas';
+    font-family: Qanelas;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.48px;
+
+
+    &__text{
+
+    }
+
+    &__bar{
+        position: relative;
+        width: 120px;
+        height: 30px;
+        border-radius: 38px;
+        opacity: 0px;
+        background-color: #22001B;
+
+        &_active{
+        width: 120px;
+        height: 30px;
+        border-radius: 38px;
+        opacity: 0px;
+        }
+    }
+
+    &__val{
+        position: absolute;
+        top: 10px;
+        margin: auto;
+    }
+}
