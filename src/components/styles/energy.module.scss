@@ -27,25 +27,18 @@
         background-color: #22001B;
 
         &_active{
-        height: 30px;
-        border-radius: 38px;
-        opacity: 0px;
-        background: linear-gradient(91.7deg, #FF6E05 0%, #F83C27 99.37%);
-        
-        top: 0;
-        left: 0;
-        z-index: 50;
+
+            height: 30px;
+            border-radius: 38px;
+            opacity: 0px;
+            background: linear-gradient(91.7deg, #FF6E05 0%, #F83C27 99.37%);
         }
     }
 
     &__val{
         position: absolute;
-        
-        text-align: center;
-        z-index: 100;
         top: 50%;
         left: 50%;
-        // transform: translate(-50%, -50%);
-        transform: translate3d(50%, 8px, 2px);
+        transform: translate(-50%, -50%);
     }
 }
