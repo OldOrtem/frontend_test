@@ -12,6 +12,7 @@
     background-image: url(../../assets/flomaster.png);
     background-position: 55%;
     background-size: 55%;
+    background-repeat: no-repeat;
     width: 90%;
 
     &__img{
@@ -26,5 +27,6 @@
         text-align: center;
         color: white;
         font-family: 'Japanese 3017';
+        margin: 18px auto;
     }
 }
