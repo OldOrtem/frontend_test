@@ -9,6 +9,7 @@ const App: React.FC = () => {
 
   return (
     <SDKProvider acceptCustomStyles >
+      
       <TappingPage/>
     </SDKProvider>
   );
