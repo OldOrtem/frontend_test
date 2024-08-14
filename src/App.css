@@ -14,9 +14,9 @@
   font-style: normal;
 }
 body{
-background-image: url(assets/Main.png);
+  background-image: url(assets/Main.png);
   background-repeat: no-repeat;
-  background-size:cover ;
+  background-size:cover;
 }
 
 #root {
@@ -25,12 +25,12 @@ background-image: url(assets/Main.png);
   min-height: 700px;
 
   color: white;
-  font-family: 'Japanese 3017';
+  font-family: 'Japanese 3017';     
   background-image: url(assets/klyaksa.png);
   background-position-y: bottom;
   background-position-x: center;
   background-size:auto;
-  background-attachment:fixed;
+  background-attachment:scroll;
   background-repeat: no-repeat;
   
 }
