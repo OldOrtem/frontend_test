@@ -49,7 +49,7 @@ class StatsService implements IService{
     public setEnergy(val:number):void{
         if(val < 0){
             val = 0;
-        }
+        } 
         this.energyStore.set(val);
     }
 
