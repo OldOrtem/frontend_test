@@ -4,6 +4,12 @@ import styles from "./styles/energy.module.scss"
 
 const Energy = observer(() => {
   
+  function getEnergyWidth(energy: number): React.CSSProperties{
+    
+    return {
+      minWidth: `${energy/10}%`,
+    };
+  };
 
     return (
       <div className={styles.energy}>
@@ -11,7 +17,7 @@ const Energy = observer(() => {
           Your Energy: {energyStore.value/10}%
         </div>
         <div className={styles.energy__bar}>
-          <div className={styles.energy__bar_active}>
+          <div className={styles.energy__bar_active} style={getEnergyWidth(energyStore.value)}>
           </div>
           <div className={styles.energy_val}>
               {energyStore.value}
