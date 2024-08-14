@@ -12,7 +12,7 @@ const Energy = observer(() => {
         </div>
         <div className={styles.energy__bar}>
           <div className={styles.energy__bar_active} style={{width:`${120*energyStore.value/1000}px`}}>
-          <div className={styles.energy_val}>
+          <div className={styles.energy__val}>
               {energyStore.value}
             </div>
             </div>
