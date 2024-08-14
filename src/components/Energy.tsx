@@ -1,7 +1,8 @@
+import { observer } from "mobx-react-lite"
 import energyStore from "../store/energyStore"
 import styles from "./styles/energy.module.scss"
 
-function Energy() {
+const Energy = observer(() => {
   
 
     return (
