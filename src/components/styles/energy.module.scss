@@ -31,7 +31,9 @@
         border-radius: 38px;
         opacity: 0px;
         background: linear-gradient(91.7deg, #FF6E05 0%, #F83C27 99.37%);
-
+        position: absolute;
+        top: 0;
+        left: 0;
         }
     }
 
@@ -42,5 +44,8 @@
         padding: 8px auto;
         text-align: center;
         z-index: 100;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
