@@ -1,6 +1,6 @@
 import statsService from "../service/StatsService";
+import fruit from "./../assets/fruit.svg"
 import shadow from "./../assets/shadow.png"
-
 import styles from "./styles/fruit.module.scss"
 
 interface FruitProps{
