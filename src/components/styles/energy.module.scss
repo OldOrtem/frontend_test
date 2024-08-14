@@ -19,7 +19,7 @@
     }
 
     &__bar{
-        
+        position: relative;
         width: 120px;
         height: 30px;
         border-radius: 38px;
@@ -38,7 +38,7 @@
     &__val{
         position: absolute;
         height: 0;
-        margin: 8px auto;
+        padding: 8px auto;
         text-align: center;
         z-index: 100;
     }
