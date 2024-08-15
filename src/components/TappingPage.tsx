@@ -47,8 +47,8 @@ const TappingPage = observer(() => {
       statsService.setEnergy(statsService.getEnergy()-step*touches);
     }
     
-    const randomX = Math.random() * window.innerWidth;
-    const randomY = Math.random() * window.innerHeight;
+    const randomX = Math.random() * window.innerWidth*0.5;
+    const randomY = Math.random() * window.innerHeight*0.5;
 
     const newBlock: NumberBlock = {
       id: Date.now(),
