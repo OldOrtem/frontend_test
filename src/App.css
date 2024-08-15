@@ -38,6 +38,16 @@ body{
 .number-popup {
   position: absolute;
   background-image: url(assets/plusCoin.png);
+  width: 142.24px;
+  height: 172.33px;
+  font-family: 'Japanese 3017';
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 41.41px;
+  text-align: center;
+
+
+
   color: #fff;
   
   opacity: 1;
