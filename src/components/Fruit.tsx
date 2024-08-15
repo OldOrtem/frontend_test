@@ -46,10 +46,10 @@ const Fruit = observer(({step}:FruitProps) => {
 
     // Вычисляем отклонение от центра блока
     const touch = event.changedTouches[0];
-    const offsetX = (touch.clientX - parentWidth / 2) / 10; // Делим на 10 для плавности
+    const offsetX = (touch.clientX - parentWidth / 2); // Делим на 10 для плавности
     // const offsetY = (touch.clientY - parentHeight / 2) / 10;
 
-    setDeg(offsetX > 0 ? -45 : 45)
+    setDeg(offsetX > 0 ? -5 : 5)
 
     setTimeout(() => {
       setDeg(0);
@@ -67,7 +67,7 @@ const Fruit = observer(({step}:FruitProps) => {
        <img 
           className={`${styles.fruit__img} ${energyStore.value ? "" : styles.grey}`} 
           onTouchStart={tap} 
-          style={{ transform: `skewX(${deg}deg)`, }} 
+          style={{ transform: `rotate(${deg}deg)`, }} 
           src={fruit} 
           alt="fruit" 
        />
