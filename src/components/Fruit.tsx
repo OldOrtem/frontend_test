@@ -14,7 +14,7 @@ function Fruit({callback, blocks}:FruitProps) {
 
     return (
       <div className={styles.fruit}>
-       <img className={styles.fruit__img} onTouchStart={callback} src={fruit} alt="fruit" />
+       <img className={styles.fruit__img} onTouchEnd={callback} src={fruit} alt="fruit" />
        <img className={styles.fruit__shadow} src={shadow} alt="shadow" />
 
        {blocks.map((block) => (

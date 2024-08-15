@@ -40,6 +40,7 @@ const TappingPage = observer(() => {
 
   const tap = (event: React.TouchEvent<HTMLDivElement>) => {
     event.stopPropagation();
+    event.stopPropagation();
     let touches = 1;
     if (statsService.getEnergy() > 0){
       touches = event.touches.length;
@@ -49,7 +50,7 @@ const TappingPage = observer(() => {
     }
     
     const randomX = Math.random() * window.innerWidth*0.5;
-    const randomY = Math.random() * window.innerHeight*0.5;
+    const randomY = Math.random() * window.innerHeight*0.3;
 
     const newBlock: NumberBlock = {
       id: Date.now(),
