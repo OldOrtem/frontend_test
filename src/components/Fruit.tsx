@@ -7,15 +7,17 @@ import styles from "./styles/fruit.module.scss"
 
 import statsService from "../service/StatsService";
 import { useState } from "react";
+import { observer } from "mobx-react-lite";
 
 interface FruitProps{
   step: number;
 }
+const Fruit = observer(({step}:FruitProps) => {
 
-function Fruit({step}:FruitProps) {
   const [blocks, setBlocks] = useState<NumberBlock[]>([]);
-  const [translateX, setTranslateX] = useState(0);
-  const [translateY, setTranslateY] = useState(0);
+  // const [translateX, setTranslateX] = useState(0);
+  // const [translateY, setTranslateY] = useState(0);
+  const [deg, setDeg] = useState(0);
 
   const tap = (event: React.TouchEvent<HTMLDivElement>) => {
     
@@ -45,14 +47,12 @@ function Fruit({step}:FruitProps) {
     // Вычисляем отклонение от центра блока
     const touch = event.changedTouches[0];
     const offsetX = (touch.clientX - parentWidth / 2) / 10; // Делим на 10 для плавности
-    const offsetY = (touch.clientY - parentHeight / 2) / 10;
+    // const offsetY = (touch.clientY - parentHeight / 2) / 10;
 
-    setTranslateX(offsetX);
-    setTranslateY(offsetY);
+    setDeg(offsetX > 0 ? -45 : 45)
 
     setTimeout(() => {
-      setTranslateX(0);
-      setTranslateY(0);
+      setDeg(0);
     }, 500);
 
     setTimeout(() => {
@@ -67,7 +67,7 @@ function Fruit({step}:FruitProps) {
        <img 
           className={`${styles.fruit__img} ${energyStore.value ? "" : styles.grey}`} 
           onTouchStart={tap} 
-          style={{ transform: `translate(${translateX}px, ${translateY}px)`, }} 
+          style={{ transform: `translate(skewX(${deg}deg))`, }} 
           src={fruit} 
           alt="fruit" 
        />
@@ -90,6 +90,6 @@ function Fruit({step}:FruitProps) {
       </div>
     )
   }
-
+)
   export default Fruit;
   
