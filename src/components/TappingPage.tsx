@@ -39,6 +39,7 @@ const TappingPage = observer(() => {
   }, [])
 
   const tap = (event: React.TouchEvent<HTMLDivElement>) => {
+    event.stopPropagation();
     let touches = 1;
     if (statsService.getEnergy() > 0){
       touches = event.touches.length;
