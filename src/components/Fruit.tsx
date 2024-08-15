@@ -53,7 +53,7 @@ const Fruit = observer(({step}:FruitProps) => {
 
     setTimeout(() => {
       setDeg(0);
-    }, 500);
+    }, 50);
 
     setTimeout(() => {
       setBlocks((prevBlocks) => prevBlocks.filter((block) => block.id !== newBlock.id));
