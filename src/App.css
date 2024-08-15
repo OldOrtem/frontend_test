@@ -37,11 +37,9 @@ body{
 
 .number-popup {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-image: url(assets/plusCoin.png);
   color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  font-size: 36px;
+  
   opacity: 1;
   animation: fadeOut 1s forwards;
 }
