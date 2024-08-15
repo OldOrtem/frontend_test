@@ -5,17 +5,47 @@ import fruit from "./../assets/fruit.svg"
 import shadow from "./../assets/shadow.png"
 import styles from "./styles/fruit.module.scss"
 
+import statsService from "../service/StatsService";
+import { useState } from "react";
+
 interface FruitProps{
-  callback:(event: React.TouchEvent<HTMLDivElement>)=>void;
-  blocks: NumberBlock[];
+  step: number;
 }
 
-function Fruit({callback, blocks}:FruitProps) {
-  
+function Fruit({step}:FruitProps) {
+  const [blocks, setBlocks] = useState<NumberBlock[]>([]);
+
+  const tap = (event: React.TouchEvent<HTMLDivElement>) => {
+    
+    let touches = 1;
+    if (statsService.getEnergy() > 0){
+      touches = event.touches.length;
+      
+      statsService.setCoins(statsService.getCoins()+step*touches);
+      statsService.setEnergy(statsService.getEnergy()-step*touches);
+    }
+    
+    const randomX = Math.random() * window.innerWidth*0.5;
+    const randomY = Math.random() * window.innerHeight*0.3;
+
+    const newBlock: NumberBlock = {
+      id: Date.now(),
+      count: touches,
+      x: randomX,
+      y: randomY,
+    };
+
+    setBlocks((prevBlocks) => [...prevBlocks, newBlock]);
+
+    setTimeout(() => {
+      setBlocks((prevBlocks) => prevBlocks.filter((block) => block.id !== newBlock.id));
+    }, 1000); // Удаляем блок через 1 секунду
+    event.stopPropagation();
+  };
 
     return (
       <div className={styles.fruit}>
-       <img className={`${styles.fruit__img} ${energyStore.value ? styles.grey : ''}`} onTouchStart={callback} src={fruit} alt="fruit" />
+       <img className={`${styles.fruit__img} ${energyStore.value ? styles.grey : ''}`} onTouchStart={tap} src={fruit} alt="fruit" />
        <img className={styles.fruit__shadow} src={shadow} alt="shadow" />
 
        {blocks.map((block) => (
