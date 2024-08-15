@@ -42,7 +42,7 @@ const Fruit = observer(({step}:FruitProps) => {
     setBlocks((prevBlocks) => [...prevBlocks, newBlock]);
 
     const parentWidth = event.currentTarget.clientWidth;
-    const parentHeight = event.currentTarget.clientHeight;
+    // const parentHeight = event.currentTarget.clientHeight;
 
     // Вычисляем отклонение от центра блока
     const touch = event.changedTouches[0];
