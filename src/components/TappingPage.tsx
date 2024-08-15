@@ -6,13 +6,9 @@ import styles from "./styles/tappingPage.module.scss"
 import Coins from "./Coins";
 import Fruit from "./Fruit";
 import Energy from "./Energy";
+import NumberBlock from "../model/numberBlocks";
 
-interface NumberBlock {
-  id: number;
-  count: number;
-  x: number;
-  y: number;
-}
+
 
 const TappingPage = observer(() => {
   const [step, setStep] = useState<number>(1); 
@@ -74,21 +70,8 @@ const TappingPage = observer(() => {
      <div className={styles.tappingPage}>
       {/* id: {userId} */}
       <Coins/>
-      <Fruit callback={tap}/>
+      <Fruit callback={tap} blocks={blocks} />
       <Energy/>
-
-        {blocks.map((block) => (
-          <div
-            key={block.id}
-            className="number-popup"
-            style={{
-              left: `${block.x}px`,
-              top: `${block.y}px`,
-            }}
-          >
-            +{block.count}
-          </div>
-        ))}
     </div>
     
   )
