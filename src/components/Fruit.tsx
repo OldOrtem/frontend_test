@@ -14,6 +14,8 @@ interface FruitProps{
 
 function Fruit({step}:FruitProps) {
   const [blocks, setBlocks] = useState<NumberBlock[]>([]);
+  const [translateX, setTranslateX] = useState(0);
+  const [translateY, setTranslateY] = useState(0);
 
   const tap = (event: React.TouchEvent<HTMLDivElement>) => {
     
@@ -37,15 +39,38 @@ function Fruit({step}:FruitProps) {
 
     setBlocks((prevBlocks) => [...prevBlocks, newBlock]);
 
+    const parentWidth = event.currentTarget.clientWidth;
+    const parentHeight = event.currentTarget.clientHeight;
+
+    // Вычисляем отклонение от центра блока
+    const touch = event.changedTouches[0];
+    const offsetX = (touch.clientX - parentWidth / 2) / 10; // Делим на 10 для плавности
+    const offsetY = (touch.clientY - parentHeight / 2) / 10;
+
+    setTranslateX(offsetX);
+    setTranslateY(offsetY);
+
+    setTimeout(() => {
+      setTranslateX(0);
+      setTranslateY(0);
+    }, 500);
+
     setTimeout(() => {
       setBlocks((prevBlocks) => prevBlocks.filter((block) => block.id !== newBlock.id));
     }, 1000); // Удаляем блок через 1 секунду
+
     event.stopPropagation();
   };
 
     return (
       <div className={styles.fruit}>
-       <img className={`${styles.fruit__img} ${energyStore.value ? styles.grey : ''}`} onTouchStart={tap} src={fruit} alt="fruit" />
+       <img 
+          className={`${styles.fruit__img} ${energyStore.value ? "" : styles.grey}`} 
+          onTouchStart={tap} 
+          style={{ transform: `translate(${translateX}px, ${translateY}px)`, }} 
+          src={fruit} 
+          alt="fruit" 
+       />
        <img className={styles.fruit__shadow} src={shadow} alt="shadow" />
 
        {blocks.map((block) => (
