@@ -67,7 +67,7 @@ const Fruit = observer(({step}:FruitProps) => {
        <img 
           className={`${styles.fruit__img} ${energyStore.value ? "" : styles.grey}`} 
           onTouchStart={tap} 
-          style={{ transform: `translate(skewX(${deg}deg))`, }} 
+          style={{ transform: `skewX(${deg}deg)`, }} 
           src={fruit} 
           alt="fruit" 
        />
