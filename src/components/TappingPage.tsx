@@ -43,7 +43,7 @@ const TappingPage = observer(() => {
     event.stopPropagation();
     let touches = 1;
     if (statsService.getEnergy() > 0){
-      touches = event.changedTouches.length;
+      touches = event.touches.length;
       
       statsService.setCoins(statsService.getCoins()+step*touches);
       statsService.setEnergy(statsService.getEnergy()-step*touches);
