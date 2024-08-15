@@ -1,24 +1,18 @@
-import statsService from "../service/StatsService";
+
 import fruit from "./../assets/fruit.svg"
 import shadow from "./../assets/shadow.png"
 import styles from "./styles/fruit.module.scss"
 
 interface FruitProps{
-  callback:()=>void;
+  callback:(event: React.TouchEvent<HTMLDivElement>)=>void;
 }
 
 function Fruit({callback}:FruitProps) {
-    
-  function tap(){
-    if (statsService.getEnergy() > 0){
-      callback();
-    }
-    
-  }
+  
 
     return (
       <div className={styles.fruit}>
-       <img className={styles.fruit__img} onClick={tap} src={fruit} alt="fruit" />
+       <img className={styles.fruit__img} onTouchStart={callback} src={fruit} alt="fruit" />
        <img className={styles.fruit__shadow} src={shadow} alt="shadow" />
       </div>
     )
