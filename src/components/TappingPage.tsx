@@ -35,7 +35,7 @@ const TappingPage = observer(() => {
       clearInterval(interval);
       statsService.saveStats(userId);
     }
-  }, [])
+  }, [initData?.user?.id, step, userId])
 
   
 

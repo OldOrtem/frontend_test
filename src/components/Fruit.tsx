@@ -42,12 +42,8 @@ const Fruit = observer(({step}:FruitProps) => {
     setBlocks((prevBlocks) => [...prevBlocks, newBlock]);
 
     const parentWidth = event.currentTarget.clientWidth;
-    // const parentHeight = event.currentTarget.clientHeight;
-
-    // Вычисляем отклонение от центра блока
     const touch = event.changedTouches[0];
-    const offsetX = (touch.clientX - parentWidth / 2); // Делим на 10 для плавности
-    // const offsetY = (touch.clientY - parentHeight / 2) / 10;
+    const offsetX = (touch.clientX - parentWidth / 2);
 
     setDeg(offsetX > 0 ? -5 : 5)
 
@@ -57,7 +53,7 @@ const Fruit = observer(({step}:FruitProps) => {
 
     setTimeout(() => {
       setBlocks((prevBlocks) => prevBlocks.filter((block) => block.id !== newBlock.id));
-    }, 1000); // Удаляем блок через 1 секунду
+    }, 1000);
 
     event.stopPropagation();
   };
