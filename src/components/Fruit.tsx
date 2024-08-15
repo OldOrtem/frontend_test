@@ -1,5 +1,6 @@
 
 import NumberBlock from "../model/numberBlocks";
+import energyStore from "../store/energyStore";
 import fruit from "./../assets/fruit.svg"
 import shadow from "./../assets/shadow.png"
 import styles from "./styles/fruit.module.scss"
@@ -14,7 +15,7 @@ function Fruit({callback, blocks}:FruitProps) {
 
     return (
       <div className={styles.fruit}>
-       <img className={styles.fruit__img} onTouchStart={callback} src={fruit} alt="fruit" />
+       <img className={`${styles.fruit__img} ${energyStore.value ? styles.grey : ''}`} onTouchStart={callback} src={fruit} alt="fruit" />
        <img className={styles.fruit__shadow} src={shadow} alt="shadow" />
 
        {blocks.map((block) => (
