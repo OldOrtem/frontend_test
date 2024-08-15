@@ -39,8 +39,7 @@ const TappingPage = observer(() => {
   }, [])
 
   const tap = (event: React.TouchEvent<HTMLDivElement>) => {
-    event.stopPropagation();
-    event.stopPropagation();
+    
     let touches = 1;
     if (statsService.getEnergy() > 0){
       touches = event.touches.length;
@@ -64,7 +63,7 @@ const TappingPage = observer(() => {
     setTimeout(() => {
       setBlocks((prevBlocks) => prevBlocks.filter((block) => block.id !== newBlock.id));
     }, 1000); // Удаляем блок через 1 секунду
-
+    event.stopPropagation();
   };
 
   return (
