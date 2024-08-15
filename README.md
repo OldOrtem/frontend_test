@@ -18,6 +18,7 @@ src/transport/statsTransport.ts
 бэкенд https://gitlab.itworkin.com/itworkin_public/test_frontend/-/tree/main/
 
 Demo:
+
 ![alt text](https://github.com/OldOrtem/frontend_test/blob/main/demo1.png?raw=true)
 
 ![alt text](https://github.com/OldOrtem/frontend_test/blob/main/demo2.png?raw=true)
