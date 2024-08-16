@@ -15,6 +15,7 @@ https://frontend-test-fawn.vercel.app
 src/transport/statsTransport.ts
 на строке 50 указан адрес бэкенда 'http://127.0.0.1:8002'
 при необходимости можно поменять на другой
+
 бэкенд https://gitlab.itworkin.com/itworkin_public/test_frontend/-/tree/main/
 
 Demo:
